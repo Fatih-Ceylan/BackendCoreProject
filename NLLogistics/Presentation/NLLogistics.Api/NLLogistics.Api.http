@@ -1,0 +1,6 @@
+@NLLogistics.Api_HostAddress = http://localhost:5260
+
+GET {{NLLogistics.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

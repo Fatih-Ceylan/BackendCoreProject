@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\Commands\Definitions\Recruitment\Job\**" />
+    <EmbeddedResource Remove="Features\Commands\Definitions\Recruitment\Job\**" />
+    <None Remove="Features\Commands\Definitions\Recruitment\Job\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Commands\Definitions\Employment\Appellation\Delete\" />
+    <Folder Include="Features\Commands\Definitions\Employment\EducationInfo\Delete\" />
+    <Folder Include="Features\Commands\Definitions\Employment\Location\Delete\" />
+    <Folder Include="Features\Commands\Definitions\Employment\Location\Update\" />
+    <Folder Include="Features\Commands\Definitions\Recruitment\Applications\JobApplicant\Delete\" />
+    <Folder Include="Features\Commands\Definitions\Recruitment\Applications\JobApplicationTest\" />
+    <Folder Include="Features\Commands\Definitions\Recruitment\Applications\JobApplication\Delete\" />
+    <Folder Include="Features\Commands\Definitions\Recruitment\Jobs\JobAdvert\Delete\" />
+    <Folder Include="Features\Queries\Definitions\Jobs\JobAdvert\GetById\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BaseProject\Core\BaseProject.Application\BaseProject.Application.csproj" />
+    <ProjectReference Include="..\..\..\CodeUtiltyLibrary\Utilities\Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

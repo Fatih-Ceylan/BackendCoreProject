@@ -1,0 +1,6 @@
+@GCrm.Api_HostAddress = http://localhost:5262
+
+GET {{GCrm.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

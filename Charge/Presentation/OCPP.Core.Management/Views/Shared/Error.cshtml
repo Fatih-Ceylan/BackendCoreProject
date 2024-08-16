@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model List<ChargePointsOverviewViewModel>
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = @Localizer["Title"];
+}
+
+<br />
+<h2 class="text-danger">@Localizer["InfoError"]</h2>
+
+@if (!string.IsNullOrEmpty((string)TempData["ErrMessage"]))
+{
+    <br />
+    <br />
+    <p>
+        <strong>@Localizer["TitleDetail"]</strong>
+    </p>
+    <p>
+        @((string)TempData["ErrMessage"])
+    </p>
+
+}
+else if (!string.IsNullOrEmpty((string)TempData["ErrMsgKey"]))
+{
+    <br />
+    <br />
+    <p>
+        <strong>@Localizer["TitleDetail"]</strong>
+    </p>
+    <p>
+        @Localizer[(string)TempData["ErrMsgKey"]]
+    </p>
+
+}

@@ -1,0 +1,50 @@
+﻿@using GCharge.Domain.Entities.Identity
+@using Microsoft.AspNetCore.Mvc.Localization
+@model List<AppUser>
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Users"];
+}
+<br />
+
+<div class="container fill">
+    <div class="row mb-3">
+        <div class="col-md-10">
+            <h2>@Localizer["Users"]</h2>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<table id="dtUsers" class="table table-striped table-bordered table-sm table-hover" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th class="th-sm">@Localizer["Username"]</th>
+            <th class="th-sm">@Localizer["Fullname"]</th>
+            <th class="th-sm">@Localizer["Email"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr class="table-row" data-href='@Url.Action("UserDetails", "Home", new { id = user.Id })'>
+                <td>@user.UserName</td>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const rows = document.querySelectorAll(".table-row");
+        rows.forEach(row => {
+            row.addEventListener("click", function () {
+                window.location = row.getAttribute("data-href");
+            });
+        });
+    });
+</script>

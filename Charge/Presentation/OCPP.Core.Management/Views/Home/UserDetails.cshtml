@@ -1,0 +1,71 @@
+﻿@using GCharge.Domain.Entities.Identity
+@using Microsoft.AspNetCore.Mvc.Localization
+@model GCharge.Domain.Entities.Identity.AppUser
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["User Details"];
+}
+
+<br />
+
+<div class="container">
+    <br />
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="alert alert-success">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+    
+    <h2>User Details</h2>
+
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>@Localizer["Full Name"]</th>
+                <td>@Model.FullName</td>
+            </tr>
+            <tr>
+                <th>@Localizer["User Name"]</th>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <th>@Localizer["Email"]</th>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <th>@Localizer["Phone Number"]</th>
+                <td>@Model.PhoneNumber</td>
+            </tr>
+            <tr>
+                <th>@Localizer["Email Confirmed"]</th>
+                <td>@Model.EmailConfirmed</td>
+            </tr>
+            <tr>
+                <th>@Localizer["Phone Number Confirmed"]</th>
+                <td>@Model.PhoneNumberConfirmed</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-6 text-left">
+            <a asp-controller="Home" asp-action="AssignRFIDCard" asp-route-userId="@Model.Id" class="btn btn-primary">@Localizer["Assign RFID Card"]</a>
+            <form asp-action="Delete" asp-route-id="@Model.Id" onsubmit="return confirm('@Localizer["Are you sure you want to delete this user?"] (@Model.Email)');" style="display:inline;">
+                <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
+            </form>
+        </div>
+        <div class="col-md-6 text-right">
+            <a asp-action="Users" class="btn btn-secondary">@Localizer["Back to List"]</a>
+        </div>
+    </div>
+
+    </div>
+
+</div>
