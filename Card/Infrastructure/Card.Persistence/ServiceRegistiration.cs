@@ -152,8 +152,8 @@ namespace Card.Persistence
 
             services.AddScoped<IOrderDetailService, OrderDetailService>();
             services.AddScoped<IOrderService, Platform.Persistence.Services.Definitions.OrderService>();
-            services.AddScoped<P.IOrderDetailWriteRepository, PP.OrderDetailWriteRepository>(); 
-            services.AddScoped<P.IOrderWriteRepository, PP.OrderWriteRepository>(); 
+            services.AddScoped<P.IOrderDetailWriteRepository, PP.OrderDetailWriteRepository>();
+            services.AddScoped<P.IOrderWriteRepository, PP.OrderWriteRepository>();
 
             #endregion
 

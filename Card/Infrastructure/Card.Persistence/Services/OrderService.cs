@@ -18,7 +18,6 @@ namespace Card.Persistence.Services
 
         public async Task<bool> UpdateOrderStatus(string orderId, OrderStatus status)
         {
-
             var order = await _orderReadRepository.GetByIdAsync(orderId);
             order.Status = status;
 
